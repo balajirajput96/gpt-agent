@@ -7,9 +7,9 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsNumber, IsObject, IsArray, IsString, IsOptional, IsBoolean, ValidateNested, IsEnum } from 'class-validator';
 import { OperatorType } from './constants';
-import { Conversation, StatusEnum } from '@app/packages/ui-tars/shared/src/types';
-import { Operator } from '@app/packages/ui-tars/sdk/src/types';
-import { ReactAgent } from '@app/agent_v2/reAct';
+import { Conversation, StatusEnum } from '@app/shared/temp-types';
+import { Operator } from '@app/shared/temp-types';
+// import { ReactAgent } from '@app/agent_v2/reAct';
 
 /**
  * Video generation status enum
@@ -479,7 +479,7 @@ export class SessionDataDto {
     type: Object
   })
   @IsObject()
-  agent: ReactAgent;
+  // agent: ReactAgent;
 
   @ApiProperty({
     description: 'Operator instance',

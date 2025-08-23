@@ -19,7 +19,8 @@ import { Request, Response } from 'express';
 import { apiReference } from '@scalar/nestjs-api-reference';
 
 // Import all DTOs for Swagger documentation
-import * as sessionDtos from './modules/sessions/dto';
+// import * as sessionDtos from './modules/sessions/dto';
+import * as careerPlanningDtos from './modules/career-planning/dto';
 
 async function bootstrap() {
   try {
@@ -68,11 +69,15 @@ The API enables developers to create automation that can handle complex real-wor
       .addTag('videos', 'Session recording, playback and workflow generation')
       .addTag('rpa', 'Execute and parameterize recorded actions as reusable workflows')
       .addTag('video', 'Learning from video recordings to generate automation steps')
+      .addTag('Career Planning', 'AI-powered career transformation and roadmap generation')
+      .addTag('Resume Analysis', 'Resume optimization and enhancement for biotechnology careers')
+      .addTag('Portfolio Management', 'Professional portfolio creation and optimization tools')
       .build();
     
     // Collect all DTO models for Swagger
     const allDtoModels = [
-      ...collectDtoModels(sessionDtos),
+      // ...collectDtoModels(sessionDtos),
+      ...collectDtoModels(careerPlanningDtos),
       // Add other module DTOs here as needed
     ];
     
@@ -138,6 +143,11 @@ The API enables developers to create automation that can handle complex real-wor
             name: 'Learning from Video',
             description: 'Extract automation workflows from video recordings through visual analysis',
             tags: ['video']
+          },
+          {
+            name: 'Career Development Suite',
+            description: 'AI-powered career planning, resume optimization, and portfolio creation tools',
+            tags: ['Career Planning', 'Resume Analysis', 'Portfolio Management']
           },
           {
             name: 'System Configuration',
